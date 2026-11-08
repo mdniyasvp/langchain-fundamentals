@@ -1,0 +1,23 @@
+#environment variables and secrets
+.env
+.env.*
+!.env.example
+
+#virtual environmets
+.venv/
+venv/
+env/
+
+#python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+#jupyter
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+.DS_Store
+Thumbs.db
+*.log

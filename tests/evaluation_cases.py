@@ -1,0 +1,73 @@
+
+EVALUATION_CASES = [
+    {
+        "id": 1,
+        "question": "Calculate 25 * 4",
+        "expected_tool": "calculator",
+        "expected_result": "100",
+        "category": "calculation",
+    },
+    {
+        "id": 2,
+        "question": "Calculate 144 / 12",
+        "expected_tool": "calculator",
+        "expected_result": "12",
+        "category": "calculation",
+    },
+    {
+        "id": 3,
+        "question": "Explain RAG",
+        "expected_tool": "search_knowledge",
+        "expected_result": "RAG",
+        "category": "knowledge",
+    },
+    {
+        "id": 4,
+        "question": "Explain LoRA",
+        "expected_tool": "search_knowledge",
+        "expected_result": "LoRA",
+        "category": "knowledge",
+    },
+    {
+        "id": 5,
+        "question": "Calculate 100 + 200 * 3 and explain RAG",
+        "expected_tool": ["calculator", "search_knowledge"],
+        "expected_result": ["700", "RAG"],
+        "category": "multi_tool",
+    },
+    {
+        "id": 6,
+        "question": "Explain quantum computing",
+        "expected_tool": "search_knowledge",
+        "expected_result": "couldn't find information",
+        "category": "unsupported",
+    },
+    {
+        "id": 7,
+        "question": "Calculate 10 / 0",
+        "expected_tool": "calculator",
+        "expected_result": "division by zero",
+        "category": "error",
+    },
+    {
+        "id": 8,
+        "question": "Explain Transformers",
+        "expected_tool": "search_knowledge",
+        "expected_result": "Transformers",
+        "category": "knowledge",
+    },
+    {
+        "id": 9,
+        "question": "Calculate 2 ** 5",
+        "expected_tool": "calculator",
+        "expected_result": "32",
+        "category": "calculation",
+    },
+    {
+        "id": 10,
+        "question": "Explain LangChain",
+        "expected_tool": "search_knowledge",
+        "expected_result": "LangChain",
+        "category": "knowledge",
+    },
+]

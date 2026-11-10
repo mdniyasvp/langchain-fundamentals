@@ -1,7 +1,8 @@
 
+import json
+
 from langchain_core.tools import tool
 
-# Small mock knowledge collection
 KNOWLEDGE_BASE = {
     "rag": """
     Retrieval-Augmented Generation (RAG) combines
@@ -17,7 +18,7 @@ KNOWLEDGE_BASE = {
 
     It is a parameter-efficient fine-tuning technique
     that introduces trainable low-rank matrices
-    while keeping the original model weights frozen.
+    while keeping original model weights frozen.
     """,
 
     "transformers": """
@@ -39,28 +40,50 @@ KNOWLEDGE_BASE = {
 @tool
 def mock_search(query: str) -> str:
     """
-    Search the local mock knowledge base for
-    information about RAG, LoRA, Transformers
-    or LangChain.
+    Search the local knowledge base for a specific
+    topic explicitly requested by the user.
+
+    Supported topics:
+    - RAG
+    - LoRA
+    - Transformers
+    - LangChain
+
+    Do not use this tool for greetings, casual
+    conversation or unrelated questions.
+
+    The query should contain the actual topic
+    requested by the user, not this tool description.
     """
 
     query_lower = query.lower()
+
     results = []
+
     for keyword, content in KNOWLEDGE_BASE.items():
+
         if keyword in query_lower:
-            results.append(content.strip())
+            results.append({
+                "topic": keyword,
+                "content": content.strip()
+            })
 
     if not results:
-        return (
-            "No relevant information found "
-            "in the mock knowledge base."
-        )
+        return json.dumps({
+            "status": "no_results",
+            "query": query,
+            "results": []
+        })
 
-    return "\n\n".join(results)
+    return json.dumps({
+        "status": "success",
+        "query": query,
+        "results": results
+    }, indent=2)
 
 
 if __name__ == "__main__":
-    result = mock_search.invoke({
+
+    print(mock_search.invoke({
         "query": "Explain RAG"
-    })
-    print(result)
+    }))

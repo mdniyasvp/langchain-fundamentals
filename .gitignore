@@ -21,3 +21,7 @@ __pycache__/
 .DS_Store
 Thumbs.db
 *.log
+
+# Local databases and logs
+data/chroma/
+*.log

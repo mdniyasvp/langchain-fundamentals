@@ -298,3 +298,40 @@ Enter a technical topic and difficulty level to receive an explanation from the 
 
 \*\*Purpose:\*\* Practical learning and experimentation with LangChain, local LLMs, and Generative AI application development.
 
+## Agent Reliability and Evaluation
+
+### Implemented Features
+
+- LangChain agent using Ollama (`llama3.2:3b`)
+- Calculator tool with AST-based expression validation
+- Knowledge retrieval tool for RAG, LoRA, Transformers and LangChain
+- Structured tool responses using Pydantic
+- Cross-field schema validation
+- Deterministic response generation
+- Tool error handling and failure recovery
+- Mock-based agent testing
+- Automated evaluation across 10 scenarios
+
+### Security and Reliability
+
+- Input validation
+- Tool permission checks
+- Human-in-the-loop approval
+- Prompt injection demonstrations
+- RAG tenant isolation demonstration
+- SQL injection prevention using parameterized queries
+- Retry, timeout and rate-limiting demonstrations
+- Structured logging and monitoring demonstrations
+
+### Test Results
+
+- Automated test suite: 39 tests passed
+- Agent evaluation: 10/10 scenarios passed
+- Evaluation categories: calculation, knowledge retrieval, multi-tool execution, errors and unsupported queries
+
+### Limitations
+
+- Knowledge search currently uses keyword matching rather than semantic retrieval.
+- The evaluation dataset is small and does not establish production-level reliability.
+- The current project uses a local Ollama model.
+- Some security and operational features are demonstrated using simulated environments rather than live production infrastructure.
